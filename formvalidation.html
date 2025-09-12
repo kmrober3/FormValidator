@@ -6,13 +6,20 @@
         <meta name="Form Validation" content="Application for verifying usernames and passwords">
         <link rel="stylesheet" type="text/css" href="formvalidation.css">
     </head> 
-    <body>
+    <body> 
+        <h1>Welcome to KMR Online.</h1>
+        <h2>Enter a username and password to join.</h2> 
         <form>
             Username: <input id="usrname" type="text" name="username"><br>
             Password: <input id="pswrd" type="text" name="password">
         </form> 
         <button id="clickMe">Enter</button> 
-        <div id="success"></div> 
+        <div id="success"></div>  
+
+        <div id = "rules">
+            <h1>Usernames must be longer than 3 characters</h1>
+            <h2>Passwords must be 6 characters with atleast 1 special character or digit</h2>
+        </div>
         <script src="formvalidation.js"></script>
     </body>
 </html>
