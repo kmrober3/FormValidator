@@ -1,35 +1,37 @@
 class FormValidation {
 
     constructor() { 
-        let userInfo = new Map();
+        this.userInfo = new Map();
     } 
 
     validateInfo(username, password) {    
         if (username.length < 0 || password.length < 0) {
-            return false;
+            throw new Error("Invalid input");
         }  
 
         if (username.length < 4 || password.length < 6) {
-            return false;
+            throw new Error("Invalid input");
         }   
 
         if (username.length > 20) {
-            return false;
+            throw new Error("Invalid input");
+        } 
+
+        if (this.userInfo.has(username)) {
+            throw new Error("Username exist");
         }
 
-        let usernameIsValid = this.checkUserName(username);
-        let passwordIsValid = this.checkPassword(password); 
-
-        return usernameIsValid && passwordIsValid;
+        this.checkUserName(username);
+        this.checkPassword(password);  
+        this.userInfo.set(username, password);
     }    
 
     checkUserName(username) {
         for (let i = 0; i < username.length; i++) {
             if (!this.isLetterOrDigit(username[i])) {
-                return false;
+                throw new Error("Invalid input");;
             }
         } 
-        return true;
     }  
 
     checkPassword(password) {
@@ -38,8 +40,10 @@ class FormValidation {
             if (this.isDigit(password[i])) {
                 count++;
             }
-        } 
-        return count > 0;
+        }  
+        if (count == 0) {
+            throw new Error("Invalid input");
+        }
     }
 
     isLetterOrDigit(char) {
@@ -52,10 +56,32 @@ class FormValidation {
 
 } 
 
-let instance = new FormValidation();
+let instance = new FormValidation();  
+let userInput = "";
+
+document.getElementById("clickMe").addEventListener("click", (event) => {
+    try {
+        let userInput = document.getElementById("usrname").value; 
+        let userPassword = document.getElementById("pswrd").value; 
+        instance.validateInfo(userInput, userPassword); 
+        document.getElementById("success").textContent = "You’re Registered!!";
+    } catch (err) {
+        console.log("Caught error:", err.message); 
+        let usernameBox = document.getElementById("usrname");
+        let passwordBox = document.getElementById("pswrd");
+
+        usernameBox.value = "";
+        usernameBox.placeholder = "Invalid input";
+
+        passwordBox.value = "";
+        passwordBox.placeholder = "Invalid input";
+
+        document.getElementById("success").textContent = "Invalid Input";
+    }
+});
 
 // Testing Code 
-let readline = require("readline");
+/*let readline = require("readline");
 
 let rl = readline.createInterface({
     input: process.stdin,
@@ -67,4 +93,4 @@ rl.question("Enter Username: ", (answer) => {
         console.log(instance.validateInfo(answer, p));  
         rl.close();
     })  
-});
+});*/
