@@ -65,7 +65,10 @@ document.getElementById("clickMe").addEventListener("click", (event) => {
         let userPassword = document.getElementById("pswrd").value; 
         instance.validateInfo(userInput, userPassword);   
         document.getElementById("success").textContent = "You're Registered!!";
-        document.getElementById("failure").textContent = ""; 
+        document.getElementById("failure").textContent = "";  
+
+        document.getElementById("usrname").value = "";
+        document.getElementById("pswrd").value = "";
     } catch (err) {
         console.log("Caught error:", err.message); 
         let usernameBox = document.getElementById("usrname");
@@ -76,7 +79,7 @@ document.getElementById("clickMe").addEventListener("click", (event) => {
 
         passwordBox.value = "";
         passwordBox.placeholder = "Invalid input"; 
-        
+
         document.getElementById("failure").textContent = "Invalid Input!!!";
         document.getElementById("success").textContent = "";
     }
