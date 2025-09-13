@@ -7,19 +7,26 @@
         <link rel="stylesheet" type="text/css" href="formvalidation.css">
     </head> 
     <body> 
-        <h1>Welcome to KMR Online.</h1>
-        <h2>Enter a username and password to join.</h2> 
+        <h1 id="Welcome">Roberts County Schools</h1>
+        <h2 id="Info">Enter a username and password to join.</h2>  
         <form>
             Username: <input id="usrname" type="text" name="username"><br>
-            Password: <input id="pswrd" type="text" name="password">
-        </form> 
-        <button id="clickMe">Enter</button> 
-        <div id="success"></div>  
+            Password: <input id="pswrd" type="text" name="password">   
+            <h3 id="Status">Account Status: </h3><br><br>
+            <button id="clickMe" type="button">Enter</button><br><br> 
 
-        <div id = "rules">
-            <h1>Usernames must be longer than 3 characters</h1>
-            <h2>Passwords must be 6 characters with atleast 1 special character or digit</h2>
-        </div>
+            <div id="rules"> 
+                <h1 id="Constraints">Constraints: </h1>  
+                <ul>
+                    <li id = "firstRule">Usernames must be longer than 3 characters</li> 
+                    <li id = "secondRule">Passwords must be 6 characters with atleast 1 special character or digit</li>
+                </ul>
+                <!--<h2 id="firstRule">Usernames must be longer than 3 characters</h2>
+                <h3 id="secondRule">Passwords must be 6 characters with atleast 1 special character or digit</h3>-->
+            </div> 
+        </form>   
+        <div id="success"></div>  
+        <div id="failure"></div> 
         <script src="formvalidation.js"></script>
     </body>
 </html>

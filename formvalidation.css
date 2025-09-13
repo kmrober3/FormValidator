@@ -1,0 +1,84 @@
+form {
+    border: 2px solid black;
+    padding: 25px;
+    width: 550px; 
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border-radius: 8px; 
+    min-height: 320px;
+} 
+
+div#rules {
+    padding: 30px; 
+}   
+
+h1#Welcome {
+    border: 2px solid black;
+    width: 1559px; 
+    padding: 20px;  
+    margin-top: -9px;
+    margin-left: -9px; 
+    background-color: silver;
+    color: navy;
+} 
+
+h2#Info {
+    text-align: center; 
+    color: white;
+} 
+
+button#clickMe {  
+    display: block;
+    margin-left: 350px; 
+    margin-top: -130px; 
+    margin-bottom: 20px; 
+    border-radius: 20px; 
+    padding: 8px; 
+    width: 80px; 
+    color: white;
+    background-color: orange; 
+    font-size: 15px;
+}   
+
+#rules {
+  display: block;  
+  border: 2px solid black;   
+  width: 400px;  
+} 
+
+h1#Constraints {
+    margin-top: -20px; 
+    margin-left: -25px; 
+    font-size: 23px;
+} 
+
+li#firstRule {
+    margin-left: -15px; 
+    font-size: 20px;
+} 
+
+li#secondRule {
+    margin-left: -15px; 
+    font-size: 20px;
+}  
+
+h3#Status {
+    display: block; 
+    margin-top: 15px;
+} 
+
+div#success {
+    margin-left: 655px; 
+    margin-top: -310px; 
+    color: green;
+} 
+
+div#failure { 
+    margin-left: 655px; 
+    margin-top: -310px; 
+    color: red;
+} 
+
+body {
+    background-color: navy;
+}

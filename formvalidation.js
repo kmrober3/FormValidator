@@ -5,7 +5,7 @@ class FormValidation {
     } 
 
     validateInfo(username, password) {    
-        if (username.length < 0 || password.length < 0) {
+        if (username.length === 0 || password.length === 0) {
             throw new Error("Invalid input");
         }  
 
@@ -63,8 +63,9 @@ document.getElementById("clickMe").addEventListener("click", (event) => {
     try {
         let userInput = document.getElementById("usrname").value; 
         let userPassword = document.getElementById("pswrd").value; 
-        instance.validateInfo(userInput, userPassword); 
-        document.getElementById("success").textContent = "You’re Registered!!";
+        instance.validateInfo(userInput, userPassword);   
+        document.getElementById("success").textContent = "You're Registered!!";
+        document.getElementById("failure").textContent = ""; 
     } catch (err) {
         console.log("Caught error:", err.message); 
         let usernameBox = document.getElementById("usrname");
@@ -74,9 +75,10 @@ document.getElementById("clickMe").addEventListener("click", (event) => {
         usernameBox.placeholder = "Invalid input";
 
         passwordBox.value = "";
-        passwordBox.placeholder = "Invalid input";
-
-        document.getElementById("success").textContent = "Invalid Input";
+        passwordBox.placeholder = "Invalid input"; 
+        
+        document.getElementById("failure").textContent = "Invalid Input!!!";
+        document.getElementById("success").textContent = "";
     }
 });
 
